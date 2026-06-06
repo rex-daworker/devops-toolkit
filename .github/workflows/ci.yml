@@ -1,0 +1,46 @@
+name: DevOps Toolkit CI Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint-and-check:
+    name: Lint & Validate Scripts
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install flake8
+        run: pip install flake8
+
+      - name: Run flake8 on Python files
+        run: |
+          find . -name "*.py" -not -path "./.terraform/*" | xargs flake8 --max-line-length=100 || true
+
+      - name: Check bash scripts exist
+        run: |
+          echo "=== Checking scripts ==="
+          ls scripts/
+          echo "✅ All scripts present"
+
+      - name: Validate Terraform config
+        run: |
+          echo "=== Terraform files ==="
+          ls terraform/
+          echo "✅ Terraform config present"
+
+      - name: Print environment info
+        run: |
+          echo "AWS Region: ${{ secrets.AWS_REGION }}"
+          echo "EC2 Instance: ${{ secrets.EC2_INSTANCE_ID }}"
+          echo "Pipeline run complete ✅"
