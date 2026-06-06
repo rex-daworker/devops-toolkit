@@ -1,0 +1,10 @@
+# Ignore backups and logs
+backups/
+logs/
+
+# Ignore terraform cache
+terraform/.terraform/
+terraform/.terraform.lock.hcl
+
+# Ignore Mac system files
+.DS_Store
