@@ -8,3 +8,4 @@ terraform/.terraform.lock.hcl
 
 # Ignore Mac system files
 .DS_Store
+.devops_secrets

@@ -1,5 +1,6 @@
 #!/bin/bash
-
+source ~/.devops_secrets
+source ~/devops-toolkit/scripts/alert.sh
 # ============================================
 # Task #13: Terraform Drift Detection
 # Checks EC2 state vs expected baseline
@@ -13,7 +14,7 @@ EXPECTED_STATE="stopped"
 TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S')
 
 echo "[$TIMESTAMP] === Drift Detection Started ===" >> "$LOGFILE"
-
+send_alert "drift_detect.sh" "⚠️ DRIFT DETECTED: instance_type changed to $CURRENT_TYPE"
 # Move into terraform directory
 cd "$TERRAFORM_DIR" || exit 1
 
@@ -31,14 +32,16 @@ DRIFT=false
 
 # Check instance type
 if [ "$CURRENT_TYPE" != "$EXPECTED_TYPE" ]; then
-    echo "[$TIMESTAMP] ⚠️  DRIFT DETECTED: instance_type changed → $CURRENT_TYPE" >> "$LOGFILE"
-    DRIFT=true
+    "echo "[$TIMESTAMP] ⚠️  DRIFT DETECTED: instance_type changed → $CURRENT_TYPE" >> "$LOGFILE"
+    send_alert "drift_detect.sh" "⚠️ DRIFT DETECTED: instance_type changed to $CURRENT_TYPE"
+	DRIFT=true
 fi
 
 # Check instance state
 if [ "$CURRENT_STATE" != "$EXPECTED_STATE" ]; then
     echo "[$TIMESTAMP] ⚠️  DRIFT DETECTED: instance_state is → $CURRENT_STATE (expected: $EXPECTED_STATE)" >> "$LOGFILE"
-    DRIFT=true
+    send_alert "drift_detect.sh" "⚠️ DRIFT DETECTED: instance_type changed to $CURRENT_TYPE"
+	 DRIFT=true
 fi
 
 if [ "$DRIFT" = false ]; then
