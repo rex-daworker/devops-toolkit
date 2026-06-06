@@ -70,5 +70,5 @@ SCRIPT_COUNT=$(ls ~/devops-toolkit/scripts/*.sh 2>/dev/null | wc -l | tr -d ' ')
 echo -e "${BLUE}📦 SCRIPTS IN TOOLKIT → ${GREEN}$SCRIPT_COUNT scripts${NC}"
 echo ""
 echo -e "${CYAN}╔══════════════════════════════════════════╗${NC}"
-echo -e "${CYAN}║           ✅ Dashboard Complete           ║${NC}"
+echo -e "${CYAN}║           ✅ Dashboard Complete         ║${NC}"
 echo -e "${CYAN}╚══════════════════════════════════════════╝${NC}"
