@@ -10,7 +10,7 @@
 
 > **Automation should be powerful, but never destructive by accident.**
 
-Every script in this toolkit is built with safety in mind — confirmation prompts before deletions, protected resources that can never be touched, and clear logging of every action taken.
+Every script in this toolkit is built with safety in mind, confirmation prompts before deletions, protected resources that can never be touched, and clear logging of every action taken.
 
 ---
 
