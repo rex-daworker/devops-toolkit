@@ -1,6 +1,6 @@
 # 🛠️ DevOps Automation Toolkit
 
-> A hands-on collection of 18 production-style automation scripts spanning Linux, AWS, Terraform, Docker, CI/CD, and monitoring — built as a structured, end-to-end learning project.
+> A hands-on collection of 18 production-style automation scripts spanning Linux, AWS, Terraform, Docker, CI/CD, and monitoring, built as a structured, end-to-end learning project.
 
 🌐 **Live Portfolio Site:** http://rex-devops-toolkit-site.s3-website.eu-north-1.amazonaws.com
 
@@ -16,7 +16,7 @@ Every script in this toolkit is built with safety in mind — confirmation promp
 
 ## 🚀 What This Toolkit Does
 
-This toolkit automates the everyday responsibilities of a DevOps engineer — keeping systems healthy, infrastructure consistent, backups current, and the team informed when something goes wrong. Every script logs its activity, most run automatically on a schedule, and critical events trigger real-time Slack alerts.
+This toolkit automates the everyday responsibilities of a DevOps engineer, keeping systems healthy, infrastructure consistent, backups current, and the team informed when something goes wrong. Every script logs its activity, most run automatically on a schedule, and critical events trigger real-time Slack alerts.
 
 ---
 
